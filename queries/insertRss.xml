@@ -1,0 +1,15 @@
+<query id="insertRss" action="insert">
+    <tables>
+        <table name="livexe_rss" />
+    </tables>
+    <columns>
+        <column name="livexe_rss_srl" var="livexe_rss_srl" filter="number" notnull="notnull" />
+        <column name="module_srl" var="module_srl" filter="number" default="0" notnull="notnull" />
+        <column name="member_srl" var="member_srl" filter="number" default="0" notnull="notnull" />
+        <column name="title" var="title" notnull="notnull" minlength="1" maxlength="250" />
+        <column name="homepage" var="homepage" maxlength="250" notnull="notnull" />
+        <column name="rss_url" var="rss_url" maxlength="250" notnull="notnull" />
+        <column name="regdate" var="regdate" default="curdate()" />
+        <column name="crawler_time" default="0" />
+    </columns>
+</query>

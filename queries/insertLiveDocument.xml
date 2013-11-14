@@ -1,0 +1,19 @@
+<query id="insertLiveDocument" action="insert">
+    <tables>
+        <table name="livexe_documents" />
+    </tables>
+    <columns>
+        <column name="module_srl" var="module_srl" notnull="notnull" />
+        <column name="livexe_rss_srl" var="livexe_rss_srl" notnull="notnull" />
+        <column name="livexe_document_srl" var="livexe_document_srl" notnull="notnull" />
+        <column name="member_srl" var="member_srl" notnull="notnull" />
+        <column name="title" var="title" notnull="notnull" />
+        <column name="content" var="content" notnull="notnull" />
+        <column name="author" var="author" />
+        <column name="link_new" var="link" notnull="notnull" />
+        <column name="tags" var="tags" notnull="notnull" />
+        <column name="thumbnail" var="thumbnail" notnull="notnull" />
+        <column name="regdate" var="regdate" notnull="notnull" />
+        <column name="list_order" var="list_order" notnull="notnull" />
+    </columns>
+</query>

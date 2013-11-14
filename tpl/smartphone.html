@@ -1,0 +1,18 @@
+<ul class="smartPhoneList">
+    <li class="title">{$page_navigation->total_count} items, {$page_navigation->cur_page}/{$page_navigation->last_page} pages</li>
+
+<!--@foreach($document_list as $key => $val)-->
+    <li class="item">
+        <!--@if($val->thumbnail)-->
+        <img src="{getUrl()}{$val->thumbnail}" width="40" height="40" align="left" class="thumbnail" />
+        <!--@end-->
+        <a href="{$val->link}">
+            <span class="title">{$val->title}</span>
+            <span class="info">
+                {(cut_str(preg_replace('/<([^>]+)>/i','',$val->content), 180))}
+            </span>
+        </a>
+    </li>
+
+<!--@end-->
+</ul>

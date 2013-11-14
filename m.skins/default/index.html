@@ -1,0 +1,55 @@
+{@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
+<!--%import("css/mlivexe.css")-->
+<div class="bd">
+	<div class="hx">
+		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->title}<!--@if($module_info->sub_title)--> - {$module_info->sub_title}<!--@end--></a></h2>
+	</div>
+	<!--@if($module_info->comment)-->
+    <p class="p">{nl2br($module_info->comment)}</p>
+	<!--@end-->
+
+	<div class="ln">
+		<ul>
+			<li<!--@if(!$act)--> class="active"<!--@end-->><a href="{getUrl('page','','act','')}">Articles : {number_format($total_articles)}</a></li>
+			<li<!--@if($act=='dispLivexeFeeds')--> class="active"<!--@end-->><a href="{getUrl('page','','act','dispLivexeFeeds')}">Total Feeds: {number_format($total_feeds)}</a></li>
+			<!--@if($is_logged)-->
+			<li<!--@if($act=='dispLivexeMyFeeds')--> class="active"<!--@end-->><a href="{getUrl('page','','act','dispLivexeMyFeeds')}">My Feeds: {number_format($total_my_feeds)}</a></li>
+			<!--@end-->
+		</ul>
+	</div>
+
+	<!--@if($act == 'dispLivexeMyFeeds')-->
+		<!--#include("myfeeds.html")-->
+	<!--@elseif($act == 'dispLivexeFeeds')-->
+		<!--#include("feeds.html")-->
+	<!--@else-->
+		<!--#include("articles.html")-->
+	<!--@end-->
+
+	<!--@if($grant->manager)-->
+	<div class="cm">
+		<a href="{getUrl('act','dispLivexeCrawler')}" class="bn">{$lang->cmd_start_crawl}</a>
+	</div>
+	<!--@end-->
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+jQuery(function($){
+	var lnb = $('.ln>ul');
+	if($('.ln').width() > lnb.width()){
+		$('.ln>button').hide();
+	}
+	$('.ln>button').click(function(){
+		var t = $(this);
+		if (t.hasClass('next')) {
+			lnb.animate({left:"-100%"},100);
+			$(this).removeClass('next').addClass('prev');
+		} else {
+			lnb.animate({left:"0"},100);
+			$(this).removeClass('prev').addClass('next');
+		}
+	});
+});
+//]]>
+</script>

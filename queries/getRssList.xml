@@ -1,0 +1,23 @@
+<query id="getRssList" action="select">
+    <tables>
+        <table name="livexe_rss" />
+        <table name="member" />
+    </tables>
+    <columns>
+        <column name="livexe_rss.*" />
+        <column name="member.nick_name" alias="nick_name"/>
+    </columns>
+    <conditions>
+        <condition operation="equal" column="livexe_rss.module_srl" var="module_srl" filter="number" />
+        <condition operation="equal" column="livexe_rss.member_srl" var="member_srl" filter="number" pipe="and" />
+        <condition operation="more" column="livexe_rss.member_srl" var="s_member_srl" filter="number" pipe="and" />
+        <condition operation="less" column="livexe_rss.crawler_time" var="cur_time" filter="number" pipe="and" />
+        <condition operation="equal" column="member.member_srl" default="livexe_rss.member_srl" filter="number" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="livexe_rss.regdate" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

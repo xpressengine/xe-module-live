@@ -1,0 +1,15 @@
+<query id="getLiveDocumentExists" action="select">
+    <tables>
+        <table name="livexe_documents" />
+    </tables>
+    <columns>
+        <column name="link_new" alias="link" />
+        <column name="regdate" />
+        <column name="livexe_document_srl" />
+        <column name="thumbnail" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="link_new" var="link" pipe="and" notnull="notnull" />
+    </conditions>
+</query>

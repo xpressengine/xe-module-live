@@ -1,0 +1,13 @@
+<filter name="get_rss" module="livexe" act="procLivexeGet">
+  <form>
+    <node target="rss_url" required="true" />
+    <node target="mid" required="true" />
+  </form>
+  <response callback_func="completeGetRss">
+    <tag name="error" />
+    <tag name="message" />
+    <tag name="title" />
+    <tag name="homepage" />
+    <tag name="rss_url" />
+  </response>
+</filter>

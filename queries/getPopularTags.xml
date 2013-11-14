@@ -1,0 +1,20 @@
+<query id="getPlanetPopularTags" action="select">
+    <tables>
+        <table name="livexe_tags" alias="tags"/>
+    </tables>
+    <columns>
+        <column name="tags.tag" />
+        <column name="count(*)" alias="count" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="tags.module_srl" var="module_srl" pipe="and" />
+        <condition operation="more" column="tags.regdate" var="date" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="count" default="count" order="desc" />
+        <list_count var="list_count" default="30" />
+    </navigation>
+    <groups>
+        <group column="tags.tag" />
+    </groups>
+</query>

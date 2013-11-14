@@ -1,0 +1,35 @@
+<div id="addFeed">
+	<div class="bg"></div>
+	<fieldset>
+		<legend>RSS Feed Registration</legend>
+		
+		<button type="button" class="close" onclick="document.getElementById('addFeed').style.display='none'"><span>Close RSS Feed Registration</span></button>
+		
+		<form action="./" method="post" onsubmit="return procFilter(this, get_rss);" id="getRssForm">
+			<input type="hidden" name="mid" value="{$mid}" />
+			<p>{$lang->about_insert_rss}</p>
+			<dl>
+				<dt><label for="rssUrl1">{$lang->rss_url}</label></dt>
+				<dd><input type="text" name="rss_url" class="inputText" id="rssUrl1" /></dd>
+			</dl>
+			<span class="liveButton strong"><input type="submit" value="{$lang->cmd_registration}" /></span>
+		</form>
+
+		<form action="./" method="post" onsubmit="return procFilter(this, insert_rss);" style="display:none" id="insertRssForm">
+			<input type="hidden" name="mid" value="{$mid}" />
+			<p>{$lang->about_insert_rss}</p>
+			<dl>
+				<dt><label for="rssTitle">{$lang->title}</label></dt>
+				<dd><input type="text" name="title" class="inputText" id="rssTitle" /></dd>
+				<dt><label for="homepage">{$lang->homepage}</label></dt>
+				<dd><input type="text" name="homepage" class="inputText" id="homepage" /></dd>
+				<dt><label for="rssUrl2">{$lang->rss_url}</label></dt>
+				<dd><input type="text" name="rss_url" class="inputText" id="rssUrl2" /></dd>
+			</dl>
+			<span class="liveButton strong"><input type="submit" value="{$lang->cmd_registration}" /></span> <span class="liveButton"><input type="button" value="{$lang->cmd_cancel}" onclick="doCancelInsertRss(); return false;"/></span>
+		</form>
+		
+		<button type="button" class="close" onclick="document.getElementById('addFeed').style.display='none'"><span>Close RSS Feed Registration</span></button>
+		
+	</fieldset>
+</div>

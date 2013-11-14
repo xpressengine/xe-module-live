@@ -1,0 +1,32 @@
+<query id="getDocuments" action="select">
+    <tables>
+        <table name="livexe_documents" alias="documents"/>
+        <table name="livexe_rss" alias="rss" />
+    </tables>
+    <columns>
+        <column name="documents.module_srl" alias="module_srl" />
+        <column name="documents.livexe_rss_srl" alias="livexe_rss_srl" />
+        <column name="documents.livexe_document_srl" alias="livexe_document_srl" />
+        <column name="documents.member_srl" alias="member_srl"/>
+        <column name="documents.title" alias="title" />
+        <column name="documents.content" alias="content" />
+        <column name="documents.author" alias="author" />
+        <column name="documents.link_new" alias="link" />
+        <column name="documents.tags" alias="tags" />
+        <column name="documents.thumbnail" alias="thumbnail" />
+        <column name="documents.regdate" alias="regdate" />
+        <column name="documents.list_order" alias="list_order" />
+        <column name="rss.title" alias="rss_title" />
+        <column name="rss.homepage" alias="homepage" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="documents.livexe_document_srl" var="srls" />
+        <condition operation="equal" column="rss.livexe_rss_srl" default="documents.livexe_rss_srl" filter="number" pipe="and"/>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="documents.regdate" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

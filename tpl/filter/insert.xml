@@ -1,0 +1,32 @@
+<filter name="insert" module="livexe" act="procLivexeAdminInsert" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="mid" required="true" filter="alpha_number" />
+        <node target="browser_title" required="true" maxlength="250" />
+        <node target="list_count" required="true" filter="number" />
+        <node target="search_list_count" required="true" filter="number" />
+        <node target="page_count" required="true" filter="number" />
+    </form>
+    <parameter>
+        <param name="livexe_name" target="mid" />
+        <param name="module_srl" target="module_srl" />
+        <param name="module_category_srl" target="module_category_srl" />
+        <param name="layout_srl" target="layout_srl" />
+        <param name="skin" target="skin" />
+        <param name="browser_title" target="browser_title" />
+        <param name="popular_tag_period" target="popular_tag_period" />
+        <param name="list_count" target="list_count" />
+        <param name="page_count" target="page_count" />
+        <param name="is_default" target="is_default" />
+        <param name="description" target="description" />
+        <param name="header_text" target="header_text" />
+        <param name="footer_text" target="footer_text" />
+    </parameter>
+    <response callback_func="completeInsertLivexe">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module" />
+        <tag name="act" />
+        <tag name="page" />
+        <tag name="module_srl" />
+    </response>
+</filter>

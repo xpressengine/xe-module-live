@@ -1,0 +1,43 @@
+<query id="getLiveDocumentList" action="select">
+    <tables>
+        <table name="livexe_documents" alias="documents"/>
+        <table name="livexe_rss" alias="rss" />
+        <table name="member" alias="member" />
+    </tables>
+    <columns>
+        <column name="documents.module_srl" alias="module_srl" />
+        <column name="documents.livexe_rss_srl" alias="livexe_rss_srl" />
+        <column name="documents.livexe_document_srl" alias="livexe_document_srl" />
+        <column name="documents.member_srl" alias="member_srl"/>
+        <column name="documents.title" alias="title" />
+        <column name="documents.content" alias="content" />
+        <column name="documents.author" alias="author" />
+        <column name="documents.link_new" alias="link" />
+        <column name="documents.tags" alias="tags" />
+        <column name="documents.thumbnail" alias="thumbnail" />
+        <column name="documents.regdate" alias="regdate" />
+        <column name="documents.list_order" alias="list_order" />
+        <column name="rss.title" alias="rss_title" />
+        <column name="rss.homepage" alias="homepage" />
+        <column name="rss.rss_url" alias="rss_url" />
+        <column name="member.nick_name" alias="nick_name" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="documents.module_srl" var="module_srl" filter="number" />
+        <condition operation="equal" column="rss.livexe_rss_srl" var="rss_srl" pipe="and" />
+        <condition operation="equal" column="rss.livexe_rss_srl" default="documents.livexe_rss_srl" filter="number" pipe="and"/>
+        <group pipe="and">
+            <condition operation="like" column="documents.title" var="title" />
+            <condition operation="like" column="documents.content" var="content" pipe="or" />
+            <condition operation="like" column="rss.homepage" var="homepage" pipe="or" />
+            <condition operation="like" column="documents.tags" var="tag" pipe="or" />
+        </group>
+        <condition operation="equal" column="member.member_srl" var="documents.member_srl" filter="number" pipe="and"/>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="documents.list_order" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

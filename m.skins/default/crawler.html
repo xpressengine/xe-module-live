@@ -1,0 +1,50 @@
+{@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
+<!--%import("css/mlivexe.css")-->
+<div class="bd">
+	<div class="hx">
+		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->title}<!--@if($module_info->sub_title)--> - {$module_info->sub_title}<!--@end--></a></h2>
+	</div>
+
+	<div class="ln">
+		<ul>
+			<li<!--@if(!$act)--> class="active"<!--@end-->><a href="{getUrl('page','','act','')}">Articles : {number_format($total_articles)}</a></li>
+			<li<!--@if($act=='dispLivexeFeeds')--> class="active"<!--@end-->><a href="{getUrl('page','','act','dispLivexeFeeds')}">Total Feeds: {number_format($total_feeds)}</a></li>
+			<!--@if($is_logged)-->
+			<li<!--@if($act=='dispLivexeMyFeeds')--> class="active"<!--@end-->><a href="{getUrl('page','','act','dispLivexeMyFeeds')}">My Feeds: {number_format($total_my_feeds)}</a></li>
+			<!--@end-->
+		</ul>
+	</div>
+
+	<p class="desc">
+		{$lang->about_livexe_web_crawler}
+		<ul>
+			<li>{date("Y/m/d H:i", $status['latest'])}</li>
+			<li>RSS Urls : {$status['total_rss']}</li>
+			<li>new Items : {number_format($status['items'])}</li>
+			<li>new Tags : {number_format($status['tags'])}</li>
+			<li>new Images : {number_format($status['images'])}</li>
+		</ul>
+	</p>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+jQuery(function($){
+	var lnb = $('.ln>ul');
+	if($('.ln').width() > lnb.width()){
+		$('.ln>button').hide();
+	}
+	$('.ln>button').click(function(){
+		var t = $(this);
+		if (t.hasClass('next')) {
+			lnb.animate({left:"-100%"},100);
+			$(this).removeClass('next').addClass('prev');
+		} else {
+			lnb.animate({left:"0"},100);
+			$(this).removeClass('prev').addClass('next');
+		}
+	});
+});
+//]]>
+</script>

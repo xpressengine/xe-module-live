@@ -1,0 +1,19 @@
+<query id="getLiveDocumentList" action="select">
+    <tables>
+        <table name="livexe_documents" alias="documents"/>
+    </tables>
+    <columns />
+    <conditions>
+        <condition operation="equal" column="documents.module_srl" var="module_srl" filter="number" />
+        <condition operation="like_prefix" column="documents.thumbnail" default="." pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="documents.regdate" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+    <groups>
+        <group column="documents.link_new" />
+    </groups>
+</query>

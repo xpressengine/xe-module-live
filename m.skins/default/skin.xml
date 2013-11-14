@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">liveXE Mobile Default</title>
+	<title xml:lang="vi">Giao diện liveXE cho Mobile</title>
+    <description xml:lang="ko">
+        liveXE 모바일 기본 스킨
+    </description>
+	<description xml:lang="vi">
+        Giao diện liveXE mặc định cho Mobile.
+    </description>
+</skin>
+

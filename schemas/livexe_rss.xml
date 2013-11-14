@@ -1,0 +1,11 @@
+<table name="livexe_rss">
+    <column name="livexe_rss_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="module_srl" type="number" size="11" default="0" notnull="notnull" index="idx_module_srl" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" index="idx_module_srl" />
+    <column name="title" type="varchar" size="250" />
+    <column name="homepage" type="varchar" size="250" />
+    <column name="rss_url" type="varchar" size="250" index="idx_rss_url"/>
+    <column name="crawler_time" type="number" size="11" notnull="notnull" index="idx_module_srl"/>
+    <column name="regdate" type="date" index="idx_regdate " />
+    <column name="last_update" type="date" index="idx_last_update" />
+</table>

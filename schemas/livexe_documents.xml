@@ -1,0 +1,14 @@
+<table name="livexe_documents">
+    <column name="module_srl" type="number" size="11" default="0" notnull="notnull" index="idx_module_srl" />
+    <column name="livexe_rss_srl" type="number" size="11" notnull="notnull" index="idx_livexe_rss_srl" />
+    <column name="livexe_document_srl" type="number" size="11" notnull="notnull" index="idx_livexe_rss_srl" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" index="idx_member_srl" />
+    <column name="title" type="varchar" size="250" />
+    <column name="content" type="bigtext" notnull="notnull" />
+    <column name="author" type="varchar" size="250" />
+	<column name="link_new" type="text" notnull="notnull" />
+    <column name="tags" type="text" />
+    <column name="thumbnail" type="varchar" size="255" default="null" />
+    <column name="regdate" type="date" index="idx_regdate " />
+    <column name="list_order" type="number" size="11" notnull="notnull" index="idx_list_order" />
+</table>

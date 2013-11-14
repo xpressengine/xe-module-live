@@ -1,0 +1,43 @@
+<!--#include("include.header.html")-->
+
+		
+<!-- .TotalFeeds -->
+		<div class="feedContainer totalFeeds">
+		
+			<div class="feedsHeader">
+				<h2>Total Feeds</h2>
+				<ul class="sumFeeds">
+                    <li><a href="{getUrl('page','','act','')}">Articles : {number_format($total_articles)}</a></li>
+                    <li><a href="{getUrl('page','','act','dispLivexeFeeds')}"><strong>Total Feeds: {number_format($total_feeds)}</strong></a></li>
+                    <li><a href="{getUrl('page','','act','dispLivexeMyFeeds')}">My Feeds: {number_format($total_my_feeds)}</a></li>
+					<li class="addFeed"><a href="#addFeed" title="Add Feed" onclick="document.getElementById('addFeed').style.display='block'"><img src="./img/buttonAdd.gif" width="12" height="12" alt="Add Feed" /></a></li>
+				</ul>
+			</div>
+	
+			<ul class="feedList">
+				<!--@foreach($feeds_list as $key => $val)-->
+				<li> 
+                    <a href="{$val->rss_url}" class="url">{$val->title}</a> 
+                    <a href="#" class="member_{$val->member_srl} author" onclick="return false;">{$val->nick_name}</a> 
+                </li>
+				<!--@end-->
+			</ul>
+			
+			<div class="pagination">
+				<a href="{getUrl('page','','document_srl','','division',$division,'last_division',$last_division)}" class="prevEnd">{$lang->first_page}</a>
+				<!--@while($page_no = $page_navigation->getNextPage())-->
+				<!--@if($page == $page_no)-->
+				<strong>{$page_no}</strong>
+				<!--@else-->
+				<a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+				<!--@end-->
+				<!--@end-->
+				<a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}" class="nextEnd">{$lang->last_page}</a>
+			</div>
+			
+		</div>
+<!-- /.TotalFeeds -->
+
+<!-- /.myFeeds -->
+
+<!--#include("include.footer.html")-->

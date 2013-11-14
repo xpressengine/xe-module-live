@@ -1,0 +1,10 @@
+<filter name="delete_livexe" module="livexe" act="procLivexeAdminDelete">
+    <form>
+        <node target="module_srl" required="true" />
+    </form>
+    <response callback_func="completeDeleteLivexe">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="page" />
+    </response>
+</filter>

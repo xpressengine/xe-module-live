@@ -1,0 +1,24 @@
+<!--%import("js/livexe_admin.js")-->
+<h3 class="xeAdmin">{$lang->livexe} <span class="gray">{$lang->cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->about_livexe)}</div>
+
+<!--@if($module_info)-->
+<div class="header4">
+    <!--@if($module_info->mid)-->
+    <h4 class="xeAdmin">{$module_info->mid} <!--@if($module_info->is_default=='Y')--><span class="bracket">({$lang->is_default})</span><!--@end--> <span class="vr">|</span> <a href="{getSiteUrl($module_info->domain,'','mid',$module_info->mid)}" onclick="window.open(this.href); return false;" class="view">View</a></h4>
+    <!--@end-->
+
+    <ul class="localNavigation">
+        <!--@if($module=='admin')-->
+        <li <!--@if($act=='dispLivexeAdminIndex')-->class="on"<!--@end-->><a href="{getUrl('act','dispLivexeAdminIndex','module_srl','')}">{$lang->cmd_list}</a></li>
+        <!--@else-->
+        <li><a href="{getUrl('act','')}">{$lang->cmd_back}</a></li>
+        <!--@end-->
+        <li <!--@if($act=='dispLivexeAdminInsert')-->class="on"<!--@end-->><a href="{getUrl('act','dispLivexeAdminInsert')}">{$lang->cmd_setup}</a></li>
+        <li <!--@if($act=='dispLivexeAdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispLivexeAdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
+        <li <!--@if($act=='dispLivexeAdminSkinInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispLivexeAdminSkinInfo')}">{$lang->cmd_manage_skin}</a></li>
+    </ul>
+</div>
+<!--@end-->
+

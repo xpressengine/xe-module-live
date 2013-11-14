@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants>
+        <grant name="insert_rss" default="member">
+            <title xml:lang="ko">RSS 등록</title>
+            <title xml:lang="en">RSS 등록</title>
+            <title xml:lang="jp">RSS登録</title>
+            <title xml:lang="zh-TW">新增 RSS</title>
+			<title xml:lang="vi">Đăng kí RSS</title>
+        </grant>
+    </grants>
+    <permissions>
+        <permission action="procLivexeInsert" target="member" />
+        <permission action="procLivexeGet" target="member" />
+        <permission action="procLivexeDelete" target="member" />
+
+        <permission action="dispLivexeAdminIndex" target="manager" />
+        <permission action="dispLivexeAdminInsert" target="manager" />
+        <permission action="dispLivexeAdminDelete" target="manager" />
+        <permission action="dispLivexeAdminGrantInfo" target="manager" />
+        <permission action="dispLivexeAdminSkinInfo" target="manager" />
+
+        <permission action="procLivexeAdminInsert" target="manager" />
+        <permission action="procLivexeAdminDelete" target="manager" />
+    </permissions>
+    <actions>
+        <action name="dispLivexeContent" type="view" index="true" />
+        <action name="dispLivexeFeeds" type="view" />
+        <action name="dispLivexeMyFeeds" type="view" />
+        <action name="dispLivexeMyFeedsOPML" type="view" />
+        <action name="dispLivexeCrawler" type="view" standalone="true" />
+
+        <action name="procLivexeInsert" type="controller" />
+        <action name="procLivexeGet" type="controller" />
+        <action name="procLivexeDelete" type="controller" />
+
+        <action name="dispLivexeAdminIndex" type="view" standalone="true" admin_index="true" />
+        <action name="dispLivexeAdminInsert" type="view" standalone="true" setup_index="true" />
+        <action name="dispLivexeAdminDelete" type="view" standalone="true" />
+        <action name="dispLivexeAdminSkinInfo" type="view" standalone="true" />
+        <action name="dispLivexeAdminGrantInfo" type="view" standalone="true" />
+
+        <action name="procLivexeAdminInsert" type="controller" standalone="true" />
+        <action name="procLivexeAdminDelete" type="controller" standalone="true" />
+    </actions>
+</module>

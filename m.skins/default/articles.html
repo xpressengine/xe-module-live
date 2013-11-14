@@ -1,0 +1,34 @@
+	<ul class="lt">
+		<!--@foreach($document_list as $key => $val)-->
+		<li>
+			<a href="{$val->link}" target="_blank">
+				<!--@if($val->thumbnail)--><img src="{getUrl()}{$val->thumbnail}" alt="" class="th" /><!--@end-->
+				<span class="title">
+					<strong>{htmlspecialchars($val->title)}</strong>
+				</span>
+			</a>
+			<p> {(cut_str(preg_replace('/<([^>]+)>/i','',$val->content), 200))} </p>
+
+			<!--@if($val->tags)-->
+			{@ $_tags = array() }
+			<ul class="tag">
+				{@ $_tags = explode(',',$val->tags)}
+				<!--@foreach($_tags as $t)-->
+				<li>{htmlspecialchars($t)}</li>
+				<!--@end-->
+			</ul>
+			<!--@end-->
+
+			<span class="auth">{htmlspecialchars($val->rss_title)} / <strong>{$val->nick_name}</strong> <span>{zdate($val->regdate, "Y-m-d H:i")}</span></span>
+		</li>
+		<!--@end-->
+	</ul>
+	<div class="pn">
+        <!--@if($page != 1)-->
+		<a href="{getUrl('page',$page-1,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">&lsaquo; {$lang->cmd_prev}</a> 
+        <!--@endif-->
+        <strong>{$page} / {$page_navigation->last_page}</strong>
+        <!--@if($page != $page_navigation->last_page)-->
+		<a href="{getUrl('page',$page+1,'document_srl','','division',$division,'last_division',$last_division,'entry','')}">{$lang->cmd_next} &rsaquo;</a>
+        <!--@endif-->
+	</div>

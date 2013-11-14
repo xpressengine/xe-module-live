@@ -1,0 +1,9 @@
+<query id="getLinksWithRssDocumentSrl" action="select">
+	<tables>
+		<table name="livexe_documents" />
+	</tables>
+	<columns>
+		<column name="livexe_document_srl" />
+		<column name="link_new" alias="link" />
+	</columns>
+</query>

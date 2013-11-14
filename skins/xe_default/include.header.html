@@ -1,0 +1,102 @@
+<!--%import("./style.css")-->
+<!--%import("./live.js")-->
+<!-- #liveXE -->
+<div id="liveXE">
+
+<!-- #liveHeader -->
+	<!--@if($module_info->title)-->
+	<div id="liveHeader">
+		<div class="liveTitle">
+			<h2 class="liveTitleText">
+				<a href="{getUrl('','mid',$mid,'listStyle',$listStyle)}">{$module_info->title}
+				<!--@if($module_info->sub_title)-->
+				: <em>{$module_info->sub_title}</em>
+				<!--@end-->
+				</a>
+			</h2>
+		</div>
+		<!--@if($module_info->comment)-->
+		<p class="liveDescription">{$module_info->comment}</p>
+		<!--@end-->
+
+		<!--@if($module_info->header_text)-->
+			<p class="liveHeaderText">{$module_info->header_text}</p>
+		<!--@end-->
+		
+		<!-- .liveSearch -->
+		<fieldset class="liveSearch">
+			<legend class="invisible">Live Search</legend>
+			<form action="{getFullUrl()}" method="get">
+				<input type="hidden" name="mid" value="{$mid}" />
+				<input type="hidden" name="vid" value="{$vid}" />
+				<input type="hidden" name="act" value="" />
+				<select name="search_target">
+					<option 
+					<!--@if($search_target=="title"||!$search_target)-->
+					 selected="selected"
+					<!--@end-->
+					value="title">{$lang->title}
+					</option>
+					<option 
+					<!--@if($search_target=="content")-->
+					 selected="selected"
+					<!--@end-->
+					 value="content">{$lang->content}
+					</option>
+					<option 
+					<!--@if($search_target=="tag")-->
+					 selected="selected"
+					<!--@end-->
+					 value="tag">{$lang->tag}
+					</option>
+				</select>
+				<input type="text" name="search_keyword" class="inputText" title="Live Search" value="<!--@if($search_target!='rss_srl')-->{htmlspecialchars($search_keyword)}<!--@end-->" /> <span class="liveButton"><input type="submit" value="{$lang->cmd_search}" /></span>
+				<!--@if($search_keyword && $search_target != 'rss_srl')-->
+				<span class="liveButton"><a href="{getUrl('search_target','','search_keyword','')}">{$lang->cmd_cancel}</a></span>
+				<!--@end-->
+			</form>
+		</fieldset>
+		<!-- /.liveSearch -->
+
+	</div>
+	<!--@end-->
+<!-- /#liveHeader -->
+	
+<!-- #liveBody -->
+	<div id="liveBody">
+	
+<!-- .liveSearch -->
+		<!--@if(!$module_info->title)-->
+		<fieldset class="liveSearch">
+			<legend class="invisible">Live Search</legend>
+			<form action="{getUrl('')}" method="get">
+				<input type="hidden" name="mid" value="{$mid}" />
+				<label for="liveSearchText">RSS Search:</label>
+				<select name="search_target">
+					<option 
+					<!--@if($search_target=="title"||!$search_target)-->
+					 selected="selected"
+					<!--@end-->
+					value="title">{$lang->title}
+					</option>
+					<option 
+					<!--@if($search_target=="content")-->
+					 selected="selected"
+					<!--@end-->
+					 value="content">{$lang->content}
+					</option>
+					<option 
+					<!--@if($search_target=="tag")-->
+					 selected="selected"
+					<!--@end-->
+					 value="tag">{$lang->tag}
+					</option>
+				</select>
+				<input type="text" name="search_keyword" id="liveSearchText" class="inputText" value="<!--@if($search_target!='rss_srl')-->{htmlspecialchars($search_keyword)}<!--@end-->" /> <span class="liveButton"><input type="submit" value="{$lang->cmd_search}" /></span>
+				<!--@if($search_keyword && $search_target != 'rss_srl')-->
+				<span class="liveButton"><a href="{getUrl('search_target','','search_keyword','')}">{$lang->cmd_cancel}</a></span>
+				<!--@end-->
+			</form>
+		</fieldset>
+		<!--@end-->
+<!-- /.liveSearch -->

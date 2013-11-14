@@ -1,0 +1,11 @@
+<query id="getRSSCount" action="select">
+    <tables>
+        <table name="livexe_rss" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias='count'/>
+    </columns>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" />
+    </conditions>
+</query>

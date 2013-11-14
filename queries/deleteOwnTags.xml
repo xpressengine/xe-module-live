@@ -1,0 +1,9 @@
+<query id="deleteOwnTags" action="delete">
+    <tables>
+        <table name="livexe_tags" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="livexe_rss_srl" var="livexe_rss_srl" filter="number" notnull="notnull" pipe="and"/>
+    </conditions>
+</query>

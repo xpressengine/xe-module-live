@@ -1,0 +1,13 @@
+{'<?xml version="1.0" encoding="UTF-8" ?>'}
+<opml version="1.0">
+<head>
+<title>LiveXE - {$myname}'s feed</title>
+<dateCreated>{date()}</dateCreated>
+<ownerName></ownerName>
+</head>
+<body>
+<!--@foreach($my_feed_list as $feed)-->
+<outline title="{htmlspecialchars($feed->title)}" htmlUrl="{$feed->homepage}" type="rss" xmlUrl="{$feed->rss_url}" />
+<!--@end-->
+</body>
+</opml>

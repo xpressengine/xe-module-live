@@ -1,0 +1,12 @@
+<filter name="insert_rss" module="livexe" act="procLivexeInsert">
+  <form>
+    <node target="rss_url" required="true" />
+    <node target="mid" required="true" />
+    <node target="title" required="true" />
+    <node target="homepage" required="true" />
+  </form>
+  <response callback_func="completeInsertRss">
+    <tag name="error" />
+    <tag name="message" />
+  </response>
+</filter>
